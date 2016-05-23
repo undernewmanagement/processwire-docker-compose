@@ -19,8 +19,3 @@ services:
             - "3306"
         volumes:
             - ./db:/var/lib/mysql/
-#        volumes:
-#            - mysql_data:/var/lib/mysql
-
-#volumes:
-#    mysql_data:
