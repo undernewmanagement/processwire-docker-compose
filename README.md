@@ -3,7 +3,7 @@
 I use Docker so that my dev and production envrionments are identical, as well as
 making sure that any other developers will have the same environment as well.
 
-This mgiht not be for you if you have a working MAMP, Vagrant, or Homebrew setup.
+This might not be for you if you have a working MAMP, Vagrant, or Homebrew setup.
 
 ## Getting started
 
