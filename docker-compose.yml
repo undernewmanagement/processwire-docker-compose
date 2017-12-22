@@ -1,21 +1,21 @@
-version: '2'
+version: '3'
 
 services:
+  lamp:
+    build: ./lamp
+    volumes:
+      - ./src:/var/www/html
+    depends_on:
+      - mysql
+    ports:
+      - "80:80"
 
-    lamp:
-        env_file: .env
-        build: ./lamp
-        volumes:
-            - ./src:/var/www/html
-        depends_on:
-            - mysql
-        ports:
-            - "80:80"
-
-    mysql:
-        env_file: .env
-        build: ./mysql
-        expose:
-            - "3306"
-        volumes:
-            - ./db:/var/lib/mysql/
+  mysql:
+    build: ./mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: Hack00rR00tp@ssword
+      MYSQL_DATABASE: lamp
+      MYSQL_USER: lamp_user
+      MYSQL_PASSWORD: Hack00rL@mPp@ssword
+    volumes:
+      - ./db:/var/lib/mysql/

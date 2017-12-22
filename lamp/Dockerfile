@@ -8,14 +8,10 @@ RUN apt-get update && apt-get install -y \
         zlib1g-dev \
     && docker-php-ext-install iconv pdo pdo_mysql mysqli zip \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
-    && docker-php-ext-install gd
-RUN apt-get update && apt-get install -y \
-        php7.0-gd \
-        php7.0-curl \
-        php7.0-mcrypt \
-        php7.0-mysql \
-        php7.0-intl
-RUN a2enmod rewrite
-RUN usermod -u 1000 www-data
-RUN usermod -G staff www-data
+    && docker-php-ext-install gd \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN a2enmod rewrite \
+&& usermod -u 1000 www-data \
+&& usermod -G staff www-data
 
